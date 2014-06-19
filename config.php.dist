@@ -1,4 +1,7 @@
 <?php 
+
+// Copy this file to config.php and change the values, in order for the config to work
+
 # ------------------------------------------------
 # License and copyright:
 # See license.txt for license information.
