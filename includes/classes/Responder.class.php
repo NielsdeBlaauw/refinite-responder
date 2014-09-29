@@ -9,17 +9,63 @@ class Responder{
 	public $ownerName = '';
 	public $replyTo = '';
 	public $msgList = '';
-	public $optMethd = 'Double';
+	public $optMethod = 'Double';
 	public $optInRedir = '';
 	public $optInDisplay = '';
-	public $optOutRedit = '';
+	public $optOutRedir = '';
 	public $optOutDisplay = '';
-	public $notifyOwnOnSub = false;
+	public $notifyOwnerOnSub = false;
 
-	public function listAll(){
+	/**
+	 * List all available responders
+	 */
+	public static function listAll(){
 		$db = PdoDb::getInstance();
 		$query = $db->prepare("SELECT ResponderID FROM infresp_responders");
 		$query->execute();
-		return $query->fetchAll(PDO::FETCH_COLUMN, 0);
+		$responders = array();
+		while($result = $query->fetch()){
+			$responders[] = Responder::getByID($result['ResponderID']);
+		}
+		return $responders;
+	}
+
+	/**
+	 *	Get a specific responder
+	 *	@param int $id Responder to be retrieved
+	*/
+	public static function getByID($id){
+		$db = PdoDb::getInstance();
+		$query = $db->prepare("SELECT ResponderID, Enabled, Name, ResponderDesc, OwnerEmail, OwnerName, ReplyToEmail, MsgList, OptMethod, OptInRedir, OptOutRedir, OptInDisplay, OptOutDisplay, NotifyOwnerOnSub FROM infresp_responders WHERE ResponderID = :id");
+		$query->execute( array("id"=>$id) );
+		$result = $query->fetch();
+		$responder = new Responder();
+		$responder->id = $result['ResponderID'];
+		$responder->enabled = (bool) $result['Enabled'];
+		$responder->name = $result['Name'];
+		$responder->description = $result['ResponderDesc'];
+		$responder->ownerEmail = $result['OwnerEmail'];
+		$responder->ownerName = $result['OwnerName'];
+		$responder->replyTo = $result['ReplyToEmail'];
+		$responder->msgList = $result['MsgList'];
+		$responder->optMethod = $result['OptMethod'];
+		$responder->optInRedir = $result['OptInRedir'];
+		$responder->optInDisplay = $result['OptInDisplay'];
+		$responder->optOutRedir = $result['OptOutRedir'];
+		$responder->optOutDisplay = $result['OptOutDisplay'];
+		$responder->notifyOwnerOnSub = (bool) $result['NotifyOwnerOnSub'];
+		return $responder;
+	}
+
+	/**
+	 *	Retrieve all messages linked to responder
+	*/
+	public function getMessages(){
+		$messages = array();
+		$messageList = explode(',', $this->msgList);
+		foreach($messageList as $messageID){
+			$messages[] = Message::getByID($messageID);
+		}
+		return $messages;
 	}
 }

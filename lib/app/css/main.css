@@ -1,0 +1,42 @@
+body {
+  padding: 5px;
+  margin: 0;
+  line-height: 20px;
+  font-family: sans-serif;
+  color: #333333;
+}
+.block-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.block-divider {
+  height: 1px;
+  border: none;
+  background: #cccccc;
+}
+.block {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+  padding: 5px;
+}
+.block-name {
+  height: 40px;
+  line-height: 40px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.responder-listing-description {
+  color: #cccccc;
+}
+.btn {
+  padding: 10px 20px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  line-height: 40px;
+  color: #333333;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #fafafa;
+}

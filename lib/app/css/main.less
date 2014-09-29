@@ -1,0 +1,40 @@
+@defaultLineHeight: 20px;
+@muted: #ccc;
+@black: #333;
+@backgrounds: #eee;
+
+body {
+  padding: 5px;
+  margin: 0;
+  line-height: @defaultLineHeight;
+  font-family: sans-serif;
+  color: @black;
+}
+
+.block-list{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.block-divider{
+	height: 1px;
+	border: none;
+	background: @muted;
+}
+
+.block{
+	box-shadow: 0 0 4px rgba(0,0,0,0.7);
+	padding:  @defaultLineHeight / 4;
+}
+
+.block-name{
+	height: 2 * @defaultLineHeight;
+	line-height: 2 * @defaultLineHeight;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@import "responder-listing.less";
+@import "button.less";

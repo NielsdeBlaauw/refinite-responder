@@ -1,0 +1,12 @@
+<h1>Dashboard</h1>
+<h2>Responders</h2>
+<ul class='responder-listings block-list'>
+	<li ng-repeat="responder in responders" class='{{responder.enabled | active}} responder-listing block'>
+		<h3 class='block-name'>{{responder.name}}</h3>
+		<hr class='block-divider' />
+		<p class='responder-listing-description'>{{responder.description}}</p>
+		<p class='responder-listing-additional-info-owner'>Owner: <a href='mailto:{{responder.ownerEmail}}' title='{{responder.ownerEmail}}' class='responder-listing-owner-data'>{{responder.ownerName}}</a></p>
+		<p class='responder-listing-additional-info-replyTo'>Reply to: <a href='mailto:{{responder.replyTo}}' title='{{responder.replyTo}}' class='responder-listing-reply-to'>{{responder.replyTo}}</a></p>
+		<a href='#/responder/{{responder.id}}' class='btn btn-primary'>View</a>
+	</li>
+</ul>
