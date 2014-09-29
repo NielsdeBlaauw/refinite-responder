@@ -40,19 +40,19 @@ class Responder{
 		$query->execute( array("id"=>$id) );
 		$result = $query->fetch();
 		$responder = new Responder();
-		$responder->id = $result['ResponderID'];
-		$responder->enabled = (bool) $result['Enabled'];
-		$responder->name = $result['Name'];
-		$responder->description = $result['ResponderDesc'];
-		$responder->ownerEmail = $result['OwnerEmail'];
-		$responder->ownerName = $result['OwnerName'];
-		$responder->replyTo = $result['ReplyToEmail'];
-		$responder->msgList = $result['MsgList'];
-		$responder->optMethod = $result['OptMethod'];
-		$responder->optInRedir = $result['OptInRedir'];
-		$responder->optInDisplay = $result['OptInDisplay'];
-		$responder->optOutRedir = $result['OptOutRedir'];
-		$responder->optOutDisplay = $result['OptOutDisplay'];
+		$responder->id               = $result['ResponderID'];
+		$responder->enabled          = (bool) $result['Enabled'];
+		$responder->name             = $result['Name'];
+		$responder->description      = $result['ResponderDesc'];
+		$responder->ownerEmail       = $result['OwnerEmail'];
+		$responder->ownerName        = $result['OwnerName'];
+		$responder->replyTo          = $result['ReplyToEmail'];
+		$responder->msgList          = $result['MsgList'];
+		$responder->optMethod        = $result['OptMethod'];
+		$responder->optInRedir       = $result['OptInRedir'];
+		$responder->optInDisplay     = $result['OptInDisplay'];
+		$responder->optOutRedir      = $result['OptOutRedir'];
+		$responder->optOutDisplay    = $result['OptOutDisplay'];
 		$responder->notifyOwnerOnSub = (bool) $result['NotifyOwnerOnSub'];
 		return $responder;
 	}
@@ -67,5 +67,19 @@ class Responder{
 			$messages[] = Message::getByID($messageID);
 		}
 		return $messages;
+	}
+
+	/**
+	 * Retrieve all subscribers linked to responder
+	*/
+	public function getSubscribers(){
+		$subscribers = array();
+		$db = PdoDb::getInstance();
+		$query = $db->prepare("SELECT SubscriberID FROM infresp_subscribers WHERE ResponderID = :id");
+		$query->execute(array("id"=>$this->id));
+		while($result = $query->fetch()){
+			$subscribers[] = Subscriber::getById($result['SubscriberID']);
+		}
+		return $subscribers;
 	}
 }

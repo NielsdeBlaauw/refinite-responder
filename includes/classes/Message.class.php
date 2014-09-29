@@ -17,11 +17,11 @@ class Message{
 		$query->execute( array("id"=>$id) );
 		$result = $query->fetch();
 		$message = new Message();
-		$message->id = $result['MsgID'];
-		$message->subject = $result['Subject'];
+		$message->id         = $result['MsgID'];
+		$message->subject    = $result['Subject'];
 		$message->sendOffset = $result['SecMinHoursDays'];
-		$message->bodyText = $result['BodyText'];
-		$message->bodyHTML = $result['BodyHTML'];
+		$message->bodyText   = $result['BodyText'];
+		$message->bodyHTML   = $result['BodyHTML'];
 		return $message;
 	}
 }
