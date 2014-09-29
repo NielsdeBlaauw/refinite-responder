@@ -8,24 +8,6 @@
 	<p class='responder-listing-additional-info-replyTo'>Reply to: <a href='mailto:{{responder.replyTo}}' title='{{responder.replyTo}}' class='responder-listing-reply-to'>{{responder.replyTo}}</a></p>
 </div>
 
-<h2>Messages</h2>
-<ul class='message-listings block-list'>
-	<li ng-repeat="message in messages" class='message-listing  block'>
-		<h3 class='block-subject'>{{message.subject}}</h3>
-		<hr class='block-divider' />
-		<p class='message-listing-sendOffset'>{{message.sendOffset}}</p>
-		<p class='message-listing-bodyText'>{{message.bodytext}}</p>
-		<p class='message-listing-bodyHTML'>{{message.bodyHTML}}</p>
-		<a href='#/message/{{message.id}}' class='btn btn-primary'>View</a>
-	</li>
-</ul>
+<div ng-include="'lib/app/templates/message-list.html'"></div>
 
-<h2>Subscribers</h2>
-<ul class='subscriber-listings block-list'>
-	<li ng-repeat="subscriber in subscribers" class='subscriber-listing  block'>
-		<h3 class='block-subject'>{{subscriber.firstName}} {{subscriber.lastName}}</h3>
-		<hr class='block-divider' />
-		<p class='subscriber-listing-emailAddress'><a href='mailto:{{subscriber.emailAddress}}'>{{subscriber.emailAddress}}</a></p>
-		<a href='#/subscriber/{{subscriber.id}}' class='btn btn-primary'>View</a>
-	</li>
-</ul>
+<div ng-include="'lib/app/templates/subscriber-list.html'"></div>

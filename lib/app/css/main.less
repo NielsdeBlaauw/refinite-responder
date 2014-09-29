@@ -15,6 +15,7 @@ body {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	box-shadow: 0 0 4px rgba(0,0,0,0.7);
 }
 
 .block-divider{
@@ -28,6 +29,14 @@ body {
 	padding:  @defaultLineHeight / 4;
 }
 
+.block-list > .block{
+	box-shadow: none;
+}
+
+.block-list> .block ~ .block{
+	border-top: 3px dotted @muted;
+}
+
 .block-name{
 	height: 2 * @defaultLineHeight;
 	line-height: 2 * @defaultLineHeight;
@@ -36,5 +45,4 @@ body {
 	overflow: hidden;
 }
 
-@import "responder-listing.less";
 @import "button.less";

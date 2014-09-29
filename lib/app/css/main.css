@@ -9,6 +9,7 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
 }
 .block-divider {
   height: 1px;
@@ -19,15 +20,18 @@ body {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
   padding: 5px;
 }
+.block-list > .block {
+  box-shadow: none;
+}
+.block-list > .block ~ .block {
+  border-top: 3px dotted #cccccc;
+}
 .block-name {
   height: 40px;
   line-height: 40px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-.responder-listing-description {
-  color: #cccccc;
 }
 .btn {
   padding: 10px 20px;
