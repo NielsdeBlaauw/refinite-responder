@@ -8,6 +8,7 @@
 		<p>{{responder.description}}</p>
 		<p>Owner: <a href='mailto:{{responder.ownerEmail}}' title='{{responder.ownerEmail}}'>{{responder.ownerName}}</a></p>
 		<p>Reply to: <a href='mailto:{{responder.replyTo}}' title='{{responder.replyTo}}'>{{responder.replyTo}}</a></p>
+		<p class='notice' ng-show='!responder.is_enabled'>This responder is not enabled.</p>
 	</div>
 </div>
 

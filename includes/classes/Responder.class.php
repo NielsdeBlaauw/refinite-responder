@@ -2,7 +2,7 @@
 
 class Responder{
 	public $id = null;
-	public $enabled = false;
+	public $is_enabled = false;
 	public $name = '';
 	public $description = '';
 	public $ownerEmail = '';
@@ -41,7 +41,7 @@ class Responder{
 		$result = $query->fetch();
 		$responder = new Responder();
 		$responder->id               = $result['ResponderID'];
-		$responder->enabled          = (bool) $result['Enabled'];
+		$responder->is_enabled       = (bool) $result['Enabled'];
 		$responder->name             = $result['Name'];
 		$responder->description      = $result['ResponderDesc'];
 		$responder->ownerEmail       = $result['OwnerEmail'];
