@@ -6,6 +6,7 @@
 	</div>
 	<div class='block-body'>
 		<p><a href='mailto:{{subscriber.emailAddress}}'>{{subscriber.emailAddress}}</a></p>
+		<p class='notice notice-warning' ng-show='subscriber.is-blacklisted'>This e-mail address is blacklisted.</p>
 	</div>
 </div>
 

@@ -77,3 +77,15 @@ body {
   border-top: none;
   border-radius: 0 0 5px 5px;
 }
+.notice {
+  border-radius: 5px;
+  border: 1px solid #ae9c92;
+  padding: 5px;
+  display: inline-block;
+  background: #efecea;
+}
+.notice-warning {
+  border-color: #fce7d2;
+  background: #fef4ea;
+  color: #f4a75a;
+}

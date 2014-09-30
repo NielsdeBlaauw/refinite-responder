@@ -90,3 +90,17 @@ body {
 	border-top: none;
 	border-radius: 0 0 5px 5px;
 }
+
+.notice{
+	border-radius: 5px;
+	border: 1px solid @muted;
+	padding: @defaultLineHeight / 4;
+	display: inline-block;
+	background: lighten(@muted, 30);
+}
+
+.notice-warning{
+	border-color: @brandAccent;
+	background: lighten(@brandAccent, 5);
+	color: darken(@brandAccent, 25);
+}
