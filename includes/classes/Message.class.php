@@ -13,7 +13,7 @@ class Message{
 	*/
 	public static function getByID($id){
 		$db = PdoDb::getInstance();
-		$query = $db->prepare("SELECT MsgID, Subject, SecMinHoursDays, BodyText, BodyHTML FROM infresp_messages WHERE MsgID = :id");
+		$query = $db->prepare("SELECT MsgID, Subject, SecMinHoursDays, BodyText, BodyHTML FROM InfResp_messages WHERE MsgID = :id");
 		$query->execute( array("id"=>$id) );
 		$result = $query->fetch();
 		$message = new Message();

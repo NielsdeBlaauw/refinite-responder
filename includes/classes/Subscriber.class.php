@@ -17,7 +17,7 @@ class Subscriber{
 	*/
 	public static function listAll(){
 		$db = PdoDb::getInstance();
-		$query = $db->prepare("SELECT SubscriberID, ResponderID, SentMsgs, EmailAddress, TimeJoined, LastActivity, FirstName, LastName, ReferralSource, Confirmed FROM infresp_subscribers");
+		$query = $db->prepare("SELECT SubscriberID, ResponderID, SentMsgs, EmailAddress, TimeJoined, LastActivity, FirstName, LastName, ReferralSource, Confirmed FROM InfResp_subscribers");
 		$query->execute();
 		$subscribers = array();
 		while($result = $query->fetch(PDO::FETCH_ASSOC)){
@@ -32,7 +32,7 @@ class Subscriber{
 	*/
 	public static function getById($id){
 		$db = PdoDb::getInstance();
-		$query = $db->prepare("SELECT SubscriberID, ResponderID, SentMsgs, EmailAddress, TimeJoined, LastActivity, FirstName, LastName, ReferralSource, Confirmed FROM infresp_subscribers WHERE SubscriberID = :id");
+		$query = $db->prepare("SELECT SubscriberID, ResponderID, SentMsgs, EmailAddress, TimeJoined, LastActivity, FirstName, LastName, ReferralSource, Confirmed FROM InfResp_subscribers WHERE SubscriberID = :id");
 		$query->execute(array("id"=>$id));
 		return  self::createFromResult($query->fetch(PDO::FETCH_ASSOC));
 	}

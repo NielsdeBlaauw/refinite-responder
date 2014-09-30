@@ -21,7 +21,7 @@ class Responder{
 	 */
 	public static function listAll(){
 		$db = PdoDb::getInstance();
-		$query = $db->prepare("SELECT ResponderID FROM infresp_responders");
+		$query = $db->prepare("SELECT ResponderID FROM InfResp_responders");
 		$query->execute();
 		$responders = array();
 		while($result = $query->fetch()){
@@ -36,7 +36,7 @@ class Responder{
 	*/
 	public static function getByID($id){
 		$db = PdoDb::getInstance();
-		$query = $db->prepare("SELECT ResponderID, Enabled, Name, ResponderDesc, OwnerEmail, OwnerName, ReplyToEmail, MsgList, OptMethod, OptInRedir, OptOutRedir, OptInDisplay, OptOutDisplay, NotifyOwnerOnSub FROM infresp_responders WHERE ResponderID = :id");
+		$query = $db->prepare("SELECT ResponderID, Enabled, Name, ResponderDesc, OwnerEmail, OwnerName, ReplyToEmail, MsgList, OptMethod, OptInRedir, OptOutRedir, OptInDisplay, OptOutDisplay, NotifyOwnerOnSub FROM InfResp_responders WHERE ResponderID = :id");
 		$query->execute( array("id"=>$id) );
 		$result = $query->fetch();
 		$responder = new Responder();
@@ -75,7 +75,7 @@ class Responder{
 	public function getSubscribers(){
 		$subscribers = array();
 		$db = PdoDb::getInstance();
-		$query = $db->prepare("SELECT SubscriberID FROM infresp_subscribers WHERE ResponderID = :id");
+		$query = $db->prepare("SELECT SubscriberID FROM InfResp_subscribers WHERE ResponderID = :id");
 		$query->execute(array("id"=>$this->id));
 		while($result = $query->fetch()){
 			$subscribers[] = Subscriber::getById($result['SubscriberID']);
