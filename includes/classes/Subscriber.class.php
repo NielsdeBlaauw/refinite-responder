@@ -9,8 +9,9 @@ class Subscriber{
 	public $firstName        = '';
 	public $lastName         = '';
 	public $referralSource   = '';
-	public $confirmed        = false;
+	public $is_confirmed     = false;
 	public $lastActivity     = 0;
+	public $is_blacklisted   = false;
 
 	/**
 	 *	List all available subscribers
@@ -51,8 +52,9 @@ class Subscriber{
 		$subscriber->firstName        = $result['FirstName'];
 		$subscriber->lastName         = $result['LastName'];
 		$subscriber->referralSource   = $result['ReferralSource'];
-		$subscriber->confirmed        = (bool) $result['Confirmed'];
+		$subscriber->is_confirmed     = (bool) $result['Confirmed'];
 		$subscriber->lastActivity     = $result['LastActivity'];
+		$subscriber->is_blacklisted   = Blacklist::inBlacklist($subscriber->emailAddress);
 		return $subscriber;
 	}
 
