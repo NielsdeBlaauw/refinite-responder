@@ -2,8 +2,9 @@ body {
   padding: 5px;
   margin: 0;
   line-height: 20px;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
   color: #333333;
+  background: white;
 }
 .block-list {
   list-style: none;
@@ -14,7 +15,7 @@ body {
 .block-divider {
   height: 1px;
   border: none;
-  background: #cccccc;
+  background: #ae9c92;
 }
 .block {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
@@ -24,7 +25,7 @@ body {
   box-shadow: none;
 }
 .block-list > .block ~ .block {
-  border-top: 3px dotted #cccccc;
+  border-top: 3px dotted #ae9c92;
 }
 .block-name {
   height: 40px;
@@ -35,7 +36,7 @@ body {
 }
 .btn {
   padding: 10px 20px;
-  border: 1px solid #cccccc;
+  border: 1px solid #ae9c92;
   border-radius: 3px;
   line-height: 40px;
   color: #333333;
@@ -43,4 +44,51 @@ body {
 }
 .btn:hover {
   background: #fafafa;
+}
+.table-std {
+  width: 100%;
+  border-spacing: 0;
+}
+.table-std th,
+.table-std td {
+  padding: 5px 10px;
+}
+.table-std thead {
+  background: #264152;
+  color: white;
+}
+.table-std thead th {
+  border-top: 1px solid #264152;
+}
+.table-std thead th:first-child {
+  border-left: 1px solid #264152;
+  border-radius: 5px 0 0 0;
+}
+.table-std thead th:last-child {
+  border-right: 1px solid #264152;
+  border-radius: 0 5px 0 0;
+}
+.table-std tbody td {
+  border-bottom: 1px dashed #ae9c92;
+}
+.table-std tbody td:first-child {
+  border-left: 1px solid #ae9c92;
+}
+.table-std tbody td:last-child {
+  border-right: 1px solid #ae9c92;
+}
+.table-std tbody tr:last-child td {
+  border-bottom: 1px solid #ae9c92;
+}
+.table-std tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+.table-std tbody tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+.table .table-type-string {
+  text-align: left;
+}
+.table .table-type-action {
+  text-align: right;
 }

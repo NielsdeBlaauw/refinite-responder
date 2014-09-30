@@ -1,14 +1,18 @@
 @defaultLineHeight: 20px;
-@muted: #ccc;
+@muted: #AE9C92;
 @black: #333;
-@backgrounds: #eee;
+@backgrounds: #FFFFFF;
+@brandMain: #264152;
+@brandAccent: #FCE7D2;
+@brandOffColor: #02042D;
 
 body {
   padding: 5px;
   margin: 0;
   line-height: @defaultLineHeight;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
   color: @black;
+  background: @backgrounds;
 }
 
 .block-list{
@@ -46,3 +50,62 @@ body {
 }
 
 @import "button.less";
+
+.table-std{
+	width: 100%;
+	border-spacing: 0;
+}
+
+.table-std th,
+.table-std td{
+	padding: @defaultLineHeight / 4 @defaultLineHeight / 2;
+}
+
+.table-std thead{
+	background: @brandMain;
+	color: white;
+	th{
+		border-top: 1px solid @brandMain;
+		&:first-child{
+			border-left: 1px solid @brandMain;
+			border-radius: 5px 0 0 0;
+		}
+		&:last-child{
+			border-right: 1px solid @brandMain;
+			border-radius: 0 5px 0 0;
+		}
+	}
+}
+
+.table-std tbody{
+	td{
+		border-bottom: 1px dashed @muted;
+		&:first-child{
+			border-left: 1px solid @muted;
+		}
+		&:last-child{
+			border-right: 1px solid @muted;
+		}
+	}
+	tr{
+		&:last-child{
+			td{
+				border-bottom: 1px solid @muted;
+				&:first-child{
+					border-radius: 0 0 0 5px;
+				}
+				&:last-child{
+					border-radius: 0 0 5px 0;
+				}
+			}
+		}
+	}
+}
+
+.table .table-type-string{
+	text-align: left;
+}
+
+.table .table-type-action{
+	text-align: right;
+}

@@ -1,12 +1,21 @@
-<h2>Subscribers</h2>
-<ul class='subscriber-listings block-list'>
-	<li ng-repeat="subscriber in subscribers" class='subscriber-listing block'>
-		<h3 class='block-subject'>{{subscriber.firstName}} {{subscriber.lastName}}</h3>
-		<hr class='block-divider' />
-		<p class='subscriber-listing-emailAddress'><a href='mailto:{{subscriber.emailAddress}}'>{{subscriber.emailAddress}}</a></p>
-		<a href='#/subscriber/{{subscriber.id}}' class='btn btn-primary'>View</a>
-	</li>
-	<li ng-if="subscribers.length == 0" class='subscriber-listing block'>
-		No subscribers found...
-	</li>
-</ul>
+<table class='table table-std'>
+	<thead>
+		<tr>
+			<th class='table-type-string'>Name</th>
+			<th class='table-type-string'>E-mail</th>
+			<th class='table-type-action'></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='subscriber in subscribers'>
+			<td class='table-type-string'>{{subscriber.firstName}} {{subscriber.lastName}}</td>
+			<td class='table-type-string'>{{subscriber.emailAddress}}</td>
+			<td class='table-type-action'>
+				<a href='#/subscriber/{{subscriber.id}}' class='action'>view</a>
+			</td>
+		</tr>
+		<tr ng-if="subscribers.length == 0">
+			<td colspan='3'>No subscribers found....</td>
+		</tr>
+	</tbody>
+<table>

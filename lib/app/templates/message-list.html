@@ -1,14 +1,19 @@
-<h2>Messages</h2>
-<ul class='message-listings block-list'>
-	<li ng-repeat='message in messages' class='message-listing block'>
-		<h3 class='block-subject'>{{message.subject}}</h3>
-		<hr class='block-divider' />
-		<p class='message-listing-sendOffset'>{{message.sendOffset}}</p>
-		<p class='message-listing-bodyText'>{{message.bodytext}}</p>
-		<p class='message-listing-bodyHTML'>{{message.bodyHTML}}</p>
-		<a href='#/message/{{message.id}}' class='btn btn-primary'>View</a>
-	</li>
-	<li ng-if="messages.length == 0" class='message-listing block'>
-		No messages found...
-	</li>
-</ul>
+<table class='table table-std'>
+	<thead>
+		<tr>
+			<th class='table-type-string'>Subject</th>
+			<th class='table-type-action'></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='message in messages'>
+			<td class='table-type-string'>{{message.subject}}</td>
+			<td class='table-type-action'>
+				<a href='#/message/{{message.id}}' class='action'>view</a>
+			</td>
+		</tr>
+		<tr ng-if="messages.length == 0">
+			<td colspan='2'>No messages found....</td>
+		</tr>
+	</tbody>
+<table>
