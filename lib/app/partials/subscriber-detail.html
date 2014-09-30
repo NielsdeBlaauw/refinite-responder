@@ -1,9 +1,12 @@
 <h1>{{subscriber.firstName}} {{subscriber.lastName}}</h1>
 <h2>Details</h2>
-<div class='message-listing block'>
-	<h3 class='block-name'>{{subscriber.firstName}} {{subscriber.lastName}}</h3>
-	<hr class='block-divider' />
-	<p class='subscriber-listing-emailAddress'><a href='mailto:{{subscriber.emailAddress}}'>{{subscriber.emailAddress}}</a></p>
+<div class='block'>
+	<div class='block-header'>
+		<h3 class='block-name'>{{subscriber.firstName}} {{subscriber.lastName}}</h3>
+	</div>
+	<div class='block-body'>
+		<p><a href='mailto:{{subscriber.emailAddress}}'>{{subscriber.emailAddress}}</a></p>
+	</div>
 </div>
 
 <h2>Received messages</h2>
