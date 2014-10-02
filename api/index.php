@@ -53,4 +53,9 @@ $app->get('/subscriber/:id', function ($id) {
 	echo json_encode(Subscriber::getByID($id));
 });
 
+// Remove specific subscriber with corresponding ID
+$app->delete('/subscriber/:id', function ($id) {
+	Subscriber::getByID($id)->delete();
+});
+
 $app->run();

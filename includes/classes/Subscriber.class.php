@@ -58,6 +58,12 @@ class Subscriber{
 		return $subscriber;
 	}
 
+	public function delete(){
+		$db = PdoDb::getInstance();
+		$query = $db->prepare("DELETE FROM InfResp_subscribers WHERE SubscriberID = :id");
+		$query->execute(array("id"=>$this->id));
+	}
+
 	public function getMessages(){
 		$messages = array();
 		$messageList = explode(',', $this->receivedMessages);
